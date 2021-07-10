@@ -1,6 +1,6 @@
 class ProductModel {
   bool? status;
-  Null? message;
+  String? message;
   Data? data;
 
   ProductModel({this.status, this.message, this.data});

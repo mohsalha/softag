@@ -30,8 +30,8 @@ class LoginScreen extends StatelessWidget {
           if (state is LoginSuccessState) {
             if (cubit.userModel.data != null) {
               AppController.instance.savaUser(cubit.userModel.data!);
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/main_screen', (route) => false);
+            Future.delayed(Duration(seconds: 3),(){  Navigator.pushNamedAndRemoveUntil(
+                context, '/main_screen', (route) => false);});
               return;
             }
             if (cubit.userModel.status == false) {

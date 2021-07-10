@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:softag/components/components.dart';
 import 'package:softag/components/consts.dart';
 import 'package:softag/screens/main_screen/cubit/cubit.dart';
@@ -86,7 +87,20 @@ class HomeScreen extends StatelessWidget {
                     height: SizeConfig.scaleHeight(20),
                   ),
                   BlocConsumer<MainCubit, MainState>(
-                    listener: (context, state) {},
+                    listener: (context, state) {
+                      if (state is MainSuccessChangeFavoriteState) {
+                        if (!state.changeFavoriteModel.status!) {
+                          Fluttertoast.showToast(
+                              msg: state.changeFavoriteModel.message!,
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 16.0);
+                        }
+                      }
+                    },
                     builder: (context, state) {
                       var cubit = MainCubit().get(context);
                       if (cubit.productModel != null) {
@@ -103,14 +117,17 @@ class HomeScreen extends StatelessWidget {
                                 SizeConfig.scaleHeight(1.7),
                             children:
                                 cubit.productModel!.data!.products!.map((e) {
-                              return productHomeItem(e,context);
+                              return productHomeItem(e, context);
                             }).toList(),
                           ),
                         );
                       } else {
                         return Padding(
-                          padding:  EdgeInsets.symmetric(vertical: SizeConfig.scaleHeight(150)),
-                          child: Center(child: CircularProgressIndicator(),),
+                          padding: EdgeInsets.symmetric(
+                              vertical: SizeConfig.scaleHeight(150)),
+                          child: Center(
+                            child: CircularProgressIndicator(),
+                          ),
                         );
                       }
                     },
@@ -123,7 +140,6 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-
 }
 
 /*

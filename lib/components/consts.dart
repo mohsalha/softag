@@ -15,3 +15,9 @@ const String CATEGORY = 'categories';
 const String HOME_PRODUCT = 'home';
 
 const String CATEGORY_PRODUCT = 'products';
+
+const String UPDATE_PROFILE = 'update-profile';
+
+const String PROFILE = 'profile';
+
+const String FAVORITE = 'favorites';

@@ -6,10 +6,10 @@ import 'package:softag/controller/app_controller.dart';
 import 'package:softag/screens/main_screen/cubit/cubit.dart';
 import 'package:softag/screens/main_screen/cubit/states.dart';
 import 'package:softag/screens/main_screen/home_screen.dart';
-import 'package:softag/screens/main_screen/menu_screen.dart';
-import 'package:softag/screens/main_screen/more_screen.dart';
+import 'package:softag/screens/main_screen/category_screen.dart';
+import 'package:softag/screens/main_screen/setting_screen.dart';
 import 'package:softag/screens/main_screen/offers_screen.dart';
-import 'package:softag/screens/main_screen/profile_screen.dart';
+import 'package:softag/screens/main_screen/favorite_screen.dart';
 import 'package:softag/size_config.dart';
 
 class MainScreen extends StatelessWidget {
@@ -18,14 +18,16 @@ class MainScreen extends StatelessWidget {
     'Good morning ${AppController.instance.getName()}!',
     'Category',
     'Latest Offers',
-    'Profile',
-    'More',
+    'Favorite',
+    'Setting',
   ];
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MainCubit()..getCategory()..getProduct(),
+      create: (context) => MainCubit()
+        ..getUserData()..getFavorite()..getCategory()
+        ..getProduct(),
       child: BlocConsumer<MainCubit, MainState>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -82,8 +84,8 @@ class MainScreen extends StatelessWidget {
                       ),
                       Spacer(),
                       bottomBarItem(
-                        title: 'Profile',
-                        icon: Icons.person,
+                        title: 'Favorite',
+                        icon: Icons.favorite_border,
                         index: 3,
                         currentIndex: cubit.index,
                         pageController: _pageController,
@@ -92,8 +94,8 @@ class MainScreen extends StatelessWidget {
                         width: SizeConfig.scaleWidth(44),
                       ),
                       bottomBarItem(
-                        title: 'More',
-                        icon: Icons.read_more_rounded,
+                        title: 'Setting',
+                        icon: Icons.settings,
                         index: 4,
                         currentIndex: cubit.index,
                         pageController: _pageController,
