@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-const Color defaultColor = Color.fromRGBO(252, 96, 17,1);
+const Color defaultColor = Colors.blueAccent;
 
 const Color greyColor = Color.fromRGBO(124, 125, 126,1);
 

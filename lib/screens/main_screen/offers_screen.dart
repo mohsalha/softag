@@ -20,7 +20,7 @@ class OffersScreen extends StatelessWidget {
             physics: BouncingScrollPhysics(),
             child:  GridView.count(
               crossAxisCount: 1,
-              childAspectRatio: SizeConfig.scaleWidth(1)/SizeConfig.scaleHeight(.8),
+              childAspectRatio: SizeConfig.scaleWidth(1)/SizeConfig.scaleHeight(.9),
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               children:cubit.productModel!.data!.products!.map((e) {

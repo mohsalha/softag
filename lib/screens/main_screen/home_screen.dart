@@ -114,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                             crossAxisSpacing: SizeConfig.scaleWidth(1),
                             mainAxisSpacing: SizeConfig.scaleHeight(1),
                             childAspectRatio: SizeConfig.scaleWidth(1) /
-                                SizeConfig.scaleHeight(1.7),
+                                SizeConfig.scaleHeight(1.9),
                             children:
                                 cubit.productModel!.data!.products!.map((e) {
                               return productHomeItem(e, context);

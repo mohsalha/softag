@@ -30,7 +30,7 @@ class _MainAppState extends State<MainApp> {
           elevation: 0,
         ),
         primaryColor: defaultColor,
-        primarySwatch: Colors.deepOrange,
+        primarySwatch: Colors.blue,
 
         fontFamily: 'a',
       ),
