@@ -13,18 +13,18 @@ class FavoriteModel {
 }
 
 class Data {
-  int? currentPage;
+  var currentPage;
   List<DataModel>? data;
   String? firstPageUrl;
-  int? from;
-  int? lastPage;
+  var from;
+  var lastPage;
   String? lastPageUrl;
   Null? nextPageUrl;
   String? path;
-  int? perPage;
+  var perPage;
   Null? prevPageUrl;
-  int? to;
-  int? total;
+  var to;
+  var total;
 
 
 
@@ -66,9 +66,9 @@ class DataModel {
 
 class Product {
   int? id;
-  int? price;
-  int? oldPrice;
-  int? discount;
+  var price;
+  var oldPrice;
+  var discount;
   String? image;
   String? name;
   String? description;

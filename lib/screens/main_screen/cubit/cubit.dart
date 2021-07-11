@@ -138,6 +138,7 @@ class MainCubit extends Cubit<MainState> {
       } else {
         getFavorite();
       }
+
       emit(MainSuccessChangeFavoriteState(changeFavoriteModel!));
     }).catchError((e) {
       if (favorite[id] == true) {
@@ -161,8 +162,10 @@ class MainCubit extends Cubit<MainState> {
       if (value.data != null) {
         favoriteModel = FavoriteModel.fromJson(value.data);
       }
+      print(' favorite is here');
       emit(MainSuccessGetFavoriteState());
     }).catchError((e) {
+      print('error favorite $e');
       emit(MainErrorGetFavoriteState());
     });
   }

@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:softag/components/consts.dart';
 import 'package:softag/screens/launch_screen.dart';
 import 'package:softag/screens/login_screen/login_screen.dart';
 import 'package:softag/screens/main_screen/main_screen.dart';
 import 'package:softag/screens/register_screen/register_screen.dart';
 
-main() => runApp(MainApp());
+main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  runApp(MainApp());
+
+}
 
 class MainApp extends StatefulWidget {
   @override
@@ -16,6 +25,7 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       theme: ThemeData(
         pageTransitionsTheme: PageTransitionsTheme(builders: {
           TargetPlatform.android: CupertinoPageTransitionsBuilder(),
